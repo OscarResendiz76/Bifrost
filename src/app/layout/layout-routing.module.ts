@@ -12,7 +12,8 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'dashboard'
+                redirectTo: 'dashboard',
+                pathMatch: 'full'
             },
             {
                 path: 'dashboard',
@@ -34,4 +35,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
-export class LayoutRoutingModule {}
+export class LayoutRoutingModule { }
