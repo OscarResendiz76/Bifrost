@@ -6,7 +6,7 @@ const routes: Routes = [
     {
         path: '',
         loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule),
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
     },
     {
         path: 'login',
@@ -15,8 +15,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+    imports: [RouterModule.forRoot(routes, { useHash: true })],
     exports: [RouterModule],
     providers: [AuthGuard]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
