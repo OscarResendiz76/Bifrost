@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build --configuration production",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
-    "gitbuild": "ng build --configuration production --base-href /start-javascript/sb-admin-material/master/dist/",
+    "gitbuild": "ng build --configuration production --base-href /start-javascript/sb-admin-material/master/docs/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -57,7 +57,7 @@
     "tslib": "^2.0.0",
     "typescript": "4.6.4"
   },
-  "description": "Simple Dashboard Admin App built using Angular 9 and Material 2.",
+  "description": "Simple Dashboard Admin App built using Angular 14 and Material 2.",
   "main": "index.js",
   "author": "",
   "license": "ISC"
