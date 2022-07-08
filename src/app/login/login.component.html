@@ -3,7 +3,8 @@
         <!-- <h1 class="app-name">Sb Admin Material</h1> -->
         <form class="login-form" fxFlex  >
             <div class="text-center">
-                <h2 class="app-name">Sb Admin Material</h2>
+                <img src="/assets/images/bifrost.png" style="width: 410px;height:180px;">
+                <!-- <h2 class="app-name">Bifrost</h2> -->
             </div>
             <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
                 <div fxFlexFill>
@@ -21,15 +22,15 @@
             </div>
             <div fxFlex  fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
                 <div fxFlex>
-                    <mat-checkbox color="primary">Remember Me</mat-checkbox>
+                    <mat-checkbox>Remember Me</mat-checkbox>
                 </div>
                 <div fxFlex  fxLayoutAlign="end">
-                    <a href="javascript:void(0)">Forget Password</a>
+                    <a href="javascript:void(0)" style="color:#de4c49">Forget Password</a>
                 </div>
             </div>
             <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
-                    <button mat-raised-button color="primary" class="w-100" (click)="onLogin()">Login</button>
+                    <button mat-raised-button style="background-color:#de4c49;color:#fff;" class="w-100" (click)="onLogin()">Login</button>
                 </div>
             </div>
 
