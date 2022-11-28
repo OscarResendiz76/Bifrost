@@ -1,0 +1,39 @@
+
+
+<div mat-dialog-content>
+  <p style="font-weight: bold; display: inline-block">Id:</p> <p style="margin-left:10px; display: inline-block">{{data.Id}}</p><br/>
+  <p style="font-weight: bold; display: inline-block">Nombre:</p> <p style="margin-left:10px; display: inline-block">{{data.OwnerName}}</p><br/>
+
+  <mat-form-field>
+    <label style="font-weight:bold; display: inline-block">Nombre de Usuario:</label>
+    <input style="display: inline-block" matInput [(ngModel)]="data.UserName" placeholder="Nombre">
+  </mat-form-field>
+  <mat-form-field>
+    <label style="font-weight:bold; display: inline-block">Contraseña:</label>
+    <input style="display: inline-block" matInput [(ngModel)]="data.Password" placeholder="Contraseña">
+  </mat-form-field>
+  <mat-form-field>
+    <label style="font-weight:bold; display: inline-block">Categoría:</label>
+    <input style="display: inline-block" matInput [(ngModel)]="data.Category" placeholder="Categoría">
+  </mat-form-field>
+  <mat-form-field>
+    <label style="font-weight:bold; display: inline-block">Acceso:</label>
+    <input style="display: inline-block" matInput [(ngModel)]="data.Access" placeholder="Acceso">
+  </mat-form-field>
+  <mat-form-field>
+    <label style="font-weight:bold; display: inline-block">Recurso:</label>
+    <input style="display: inline-block" matInput [(ngModel)]="data.Resource" placeholder="Recurso">
+  </mat-form-field>
+  <mat-form-field>
+    <label style="font-weight:bold; display: inline-block">Extras:</label>
+    <input style="display: inline-block" matInput [(ngModel)]="data.Extras" placeholder="Extras">
+  </mat-form-field>
+  <mat-form-field>
+    <label style="font-weight:bold; display: inline-block">Notas:</label>
+    <input style="display: inline-block" matInput [(ngModel)]="data.Notes" placeholder="Notas">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.UserName" cdkFocusInitial>Update</button>
+</div>

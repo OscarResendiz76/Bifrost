@@ -1,14 +1,12 @@
 <div class="container mt-5">
-    <h2>Accesos</h2>
-    <!--FILTRO BUSCADOR:-->
+    <h2>Servidores</h2>
+    <!--FILTER-->
     <input type="text" placeholder="Search..." [(ngModel)]="filterTerm"/>
-    <!--AGREGAR ITEM:
-    ACTUALMENTE ESTÁ INCOMPLETO, ABRE UN MODAL EN NEWUSER.HTML PERO NO FUNCIONA Y AGREGA UNA COLUMNA EN BLANCO-->
+    <!--END FILTER-->
     <button (click)="addItem()" class="add"><mat-icon>add</mat-icon></button>
     <table class="table table-striped">
         <thead>
             <tr>
-                <!-- LOS [style.display]="'none'" HACEN A LA COLUMNA INVISIBLE PARA QUE EXISTA SIN MOSTRARSE-->
                 <th [style.display]="'none'">Id.</th>
                 <th [style.display]="'none'">Nombre</th>
                 <th>Usuario</th>
@@ -23,13 +21,12 @@
             </tr>
         </thead>
         <tbody>
-            <!-- EL | filter: filterTerm" HACE QUE EL FILTRO FUNCIONE-->
             <tr *ngFor="let element of dataSource | filter: filterTerm">
                 <td [style.display]="'none'">{{ element.Id }}</td>
                 <td [style.display]="'none'">{{ element.OwnerName }}</td>
                 <td>{{ element.UserName }}</td>
                 <td class="icon-psw"><mat-icon>visibility_off</mat-icon></td>
-                <td *ngIf="Category != 'Servidor' || Cateogry != 'Licencias'">{{ element.Category }}</td>
+                <td >{{ element.Category }}</td>
                 <td>{{ element.Access }}</td>
                 <td>{{ element.Resource }}</td>
                 <td>{{ element.Instructions }}</td>
@@ -50,14 +47,3 @@
         </tbody>
     </table>
 </div>
-
-
-<!-- ESTO SE TIENE QUE BORRAR, SOLO SON LINKS QUE ME PARECÍAN UTILES, PUEDES USARLOS SI QUIERES-->
-<ul>
-    <li style="font-weight: bold;">Front y Back:</li>
-    <li><a href="https://www.youtube.com/watch?v=dsFD3A5ddhA" target="_blank">Juntar Frontend y Backend</a></li>
-    <li><a href="https://github.com/cavanosa/crudFRONT/blob/master/src/app/service/producto.service.ts" target="_blank">CRUD</a></li>
-    <li style="font-weight: bold;">Login  & Register:</li>
-    <li><a href="https://stackblitz.com/edit/angular-8-registration-login-example?file=app%2Fapp.component.ts" target="_blank">Login-Reg Stackbliz</a></li>
-    <li><a href="https://www.bezkoder.com/angular-12-jwt-auth/#Overview" target="_blank">Login y Register</a></li>
-</ul>

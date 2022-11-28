@@ -1,0 +1,42 @@
+
+
+<div mat-dialog-content>
+  <p style="font-weight: bold; display: inline-block;">Id: </p>
+  <p style="display: inline-block;">{{data.Id}}</p>
+  <br/>
+  <p style="font-weight: bold; display: inline-block;">Id: </p>
+  <p style="display: inline-block;">{{data.OwnerName}}</p>
+  <br/>
+  <mat-form-field>
+    <label>Nombre:</label>
+    <input matInput [(ngModel)]="data.UserName" placeholder="Nombre">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Contraseña:</label>
+    <input matInput [(ngModel)]="data.Password" placeholder="Contraseña">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Categoría:</label>
+    <input matInput [(ngModel)]="data.Category" placeholder="Categoría">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Acceso:</label>
+    <input matInput [(ngModel)]="data.Access" placeholder="Acceso">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Recurso:</label>
+    <input matInput [(ngModel)]="data.Resource" placeholder="Recurso">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Extras:</label>
+    <input matInput [(ngModel)]="data.Extras" placeholder="Extras">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Notas:</label>
+    <input matInput [(ngModel)]="data.Notes" placeholder="Notas">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.UserName" cdkFocusInitial>Add</button>
+</div>

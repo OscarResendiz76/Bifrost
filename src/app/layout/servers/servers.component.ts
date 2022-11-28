@@ -1,4 +1,3 @@
-// ELEMENTOS Y SERVICIOS QUE VAS A USAR
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MainService } from 'src/app/shared/services/main/main.service';
 import { MatSort } from '@angular/material/sort';
@@ -7,20 +6,13 @@ import { Main } from 'src/app/shared/models/main';
 import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: 'dashboard.component.html',
-  styleUrls: ['dashboard.component.scss']
+  selector: 'app-servers',
+  templateUrl: 'servers.component.html',
+  styleUrls: ['servers.component.scss']
 })
 
-/* IMPORTANTE:
-    LAS PÁGINAS DE LICENCIAS Y SERVIDORES SON PRÁCTICAMENTE LO MISMO A ESTO,
-    PERO ENFOCADAS A DICHAS ÁREAS
-    LO ÚNICO PENDIENTE ES QUE LAS FILAS TENGAN UNA VIEW ENFOCADA A LICENCIAS Y SERVIDORES RESPECTIVAMENTE
-*/
+export class ServersComponent implements OnInit {
 
-export class DashboardComponent implements OnInit {
-  // EN EL CONSTRUCTOR METES LOS SERVICIOS Y IMPORTS QUE VAS A USAR
-  // private/public CodeName: ServiceName
   constructor(private userService: MainService, public dialog: MatDialog) {
     console.log(this.dataSource);
     userService.usersMain().subscribe((data) => {
@@ -29,7 +21,16 @@ export class DashboardComponent implements OnInit {
     });
   }
   displayedColumns: string[] = [
-    'Id', 'OwnerName', 'UserName', 'Password', 'Category', 'Access', 'Resource', 'Instructions', 'Notes', 'Extras'
+    'Id',
+    'OwnerName',
+    'UserName',
+    'Password',
+    'Category',
+    'Access',
+    'Resource',
+    'Instructions',
+    'Notes',
+    'Extras'
   ];
   dataSource;
   user;
@@ -39,6 +40,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   filterTerm!: string;
 
+
   ngOnInit() {
     this.dataSource.filterPredicate = function (record, filter) {
       return record.Gender.toLocaleLowerCase() === filter.toLocaleLowerCase();
@@ -46,40 +48,38 @@ export class DashboardComponent implements OnInit {
   }
 
   addItem() {
-    // ADD ITEM ESTÁ INCOMPLETO, LA COLUMNA SE SIGUE AGREGANDO VACÍA
-    /*
-      const newRow = {'Id': 10, 'OwnerName': '', 'UserName': '', 'Password': '', 'Category': '',
-      'Access': '', 'Resource:' : '', 'Instructions': '', 'Notes': '', 'Extras': '', isEdit: true};
-      this.dataSource = [...this.dataSource, newRow];
-    */
-    const newRow = this.dialog.open(NewUserDashboard);
+    // tslint:disable-next-line:max-line-length
+    /*const newRow = {'Id': 10, 'OwnerName': '', 'UserName': '', 'Password': '', 'Category': '', 'Access': '', 'Resource:' : '', 'Instructions': '', 'Notes': '', 'Extras': '', isEdit: true};
+    this.dataSource = [...this.dataSource, newRow];*/
+
+    const newRow = this.dialog.open(NewUser);
     this.dataSource = [...this.dataSource, newRow];
+
     newRow.afterClosed().subscribe(result => {
-    });
-  }
-  // EDIT USER YA FUNCIONA BIEN
-  editUser(user) {
-    // ABRE EL MODAL
-    const dialogRef = this.dialog.open(DialogOverviewDashboard, {
-      width: '450px', // ANCHO DEL MODAL
-      data: user // DATOS QUE JALA
+
     });
 
-    // GUARDA LA INFORMACIÓN NUEVA TRAS CERRARLO
+  }
+
+
+  editUser(user) {
+    const dialogRef = this.dialog.open(DialogOverviewServers, {
+      width: '450px',
+      data: user
+    });
+
     dialogRef.afterClosed().subscribe(result => {
       this.user = user;
     });
   }
 
-  // SEE ITEM YA FUNCIONA, SOLO ES UN DISPLAY
   seeItem(user) {
-    const dialogView = this.dialog.open(ModalViewerDashboard, {
+    const dialogView = this.dialog.open(ModalViewerServers, {
       width: '450px',
       data: user
     });
   }
 
-  // ELIMINA LA FILA CON LOS DATOS BASADOS EN EL ID DE LA FILA
   removeRow(id: number) {
     console.log(this.dataSource);
     this.dataSource = this.dataSource.filter((u) => u.Id !== id);
@@ -90,15 +90,15 @@ export class DashboardComponent implements OnInit {
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'dialog-overview-dashboard',
+  selector: 'dialog-overview-servers',
   templateUrl: 'dialog.html',
 })
 
 // tslint:disable-next-line:component-class-suffix
-export class DialogOverviewDashboard {
+export class DialogOverviewServers {
 
   constructor(
-    public dialogRef: MatDialogRef<DialogOverviewDashboard>,
+    public dialogRef: MatDialogRef<DialogOverviewServers>,
     @Inject(MAT_DIALOG_DATA) public data: Main) {}
 
   onNoClick(): void {
@@ -108,15 +108,15 @@ export class DialogOverviewDashboard {
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'modal-viewer-dashboard',
+  selector: 'modal-viewer-servers',
   templateUrl: 'modalview.html',
-  styleUrls: ['dashboard.component.scss']
+  styleUrls: ['servers.component.scss']
 })
 // tslint:disable-next-line:component-class-suffix
-export class ModalViewerDashboard {
+export class ModalViewerServers {
 
   constructor(
-    public dialogRef: MatDialogRef<ModalViewerDashboard>,
+    public dialogRef: MatDialogRef<ModalViewerServers>,
     @Inject(MAT_DIALOG_DATA) public data: Main) {}
 
   onNoClick(): void {
@@ -126,15 +126,15 @@ export class ModalViewerDashboard {
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'new-user-dashboard',
+  selector: 'new-user-servers',
   templateUrl: 'newuser.html',
-  styleUrls: ['dashboard.component.scss']
+  styleUrls: ['servers.component.scss']
 })
 // tslint:disable-next-line:component-class-suffix
-export class NewUserDashboard {
+export class NewUser {
 
   constructor(
-    public dialogRef: MatDialogRef<NewUserDashboard>,
+    public dialogRef: MatDialogRef<NewUser>,
     @Inject(MAT_DIALOG_DATA) public data: Main) {}
 
   onNoClick(): void {
