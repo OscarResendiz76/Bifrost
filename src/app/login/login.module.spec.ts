@@ -1,6 +1,6 @@
 import { LoginModule } from './login.module';
 
-describe('LoginModule', () => {
+describe('LayoutModule', () => {
     let loginModule: LoginModule;
 
     beforeEach(() => {

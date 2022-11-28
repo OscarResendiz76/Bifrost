@@ -1,38 +1,66 @@
 <div class="login-page">
     <div class="content">
-        <!-- <h1 class="app-name">Sb Admin Material</h1> -->
-        <form class="login-form" fxFlex  >
+        <form class="login-form" fxFlex
+            *ngIf="!isLoggedIn" name="form"
+            (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <div class="text-center">
-                <h2 class="app-name">Sb Admin Material</h2>
+                <img src="/assets/images/bifrost.png" style="width: 410px;height:180px;">
             </div>
-            <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
+            <!-- ----------------------------------------- Username ----------------------------------------- -->
+            <div fxFlex fxLayout="row" class="form-group" xLayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput placeholder="Email">
+                        <input matInput
+                            type="text" class="form-control" placeholder="Nombre de Usuario"
+                            [(ngModel)]="form.nombreUsuario" name="nombreUsuario" required="required"/>
                     </mat-form-field>
+                    <!-- Control de que la información sea correcta, no listo
+                    <div class="alert-danger" *ngIf="nombreUsuario.errors && f.submitted">
+                        <div *ngIf="nombreUsuario.errors.required">Username is required</div>
+                        <div *ngIf="nombreUsuario.errors.minlength">
+                            Username must be at least 3 characters
+                        </div>
+                        <div *ngIf="nombreUsuario.errors.maxlength">
+                            Username must be at most 20 characters
+                        </div>
+                    </div>
+                    -->
                 </div>
             </div>
-            <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
+            <!-- ----------------------------------------- Password ----------------------------------------- -->
+            <div fxFlex fxLayout="row"class="form-group" fxLayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput type="password" placeholder="Password">
+                        <input matInput type="password" class="form-control" name="password" placeholder="Contraseña"
+                            [(ngModel)]="form.password"  required="required" minlength="8" #password="ngModel"/>
                     </mat-form-field>
+                    <!--
+                    <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                        <div *ngIf="password.errors.required">Password is required</div>
+                        <div *ngIf="password.errors.minlength">
+                            Password must be at least 6 characters
+                        </div>
+                    </div>
+                    -->
                 </div>
             </div>
-            <div fxFlex  fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
+                <!-- ----------------------------------------- FORM OVER ----------------------------------------- -->
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
                 <div fxFlex>
-                    <mat-checkbox color="primary">Remember Me</mat-checkbox>
+                    <mat-checkbox>Remember Me</mat-checkbox>
                 </div>
-                <div fxFlex  fxLayoutAlign="end">
-                    <a href="javascript:void(0)">Forget Password</a>
+                <div fxFlex fxLayoutAlign="end">
+                    <a href="javascript:void(0)">Forgot Password?</a>
                 </div>
             </div>
-            <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
-                    <button mat-raised-button color="primary" class="w-100" (click)="onLogin()">Login</button>
+                    <button class="action_btn" mat-raised-button class="w-100">Login</button>
+                    <!-- A PARTIR DE ESTE CLICK SE DEBE VERIFICAR Y LLEVAR A DASHBOARD-->
+                    <a [routerLink]="['/register']">Register</a>
+                    <!-- ESTE HIPERVINCULO TE LLEVA A LA FORMA DE REGISTRO, RUTA EN APP-ROUTING-->
                 </div>
             </div>
-
         </form>
     </div>
 </div>
