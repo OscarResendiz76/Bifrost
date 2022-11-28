@@ -1,0 +1,70 @@
+$Rojo: #f04b4d;
+$Amarillo: #ffca5c; 
+$Azul: #005d84;
+
+.register-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    background-image: url(https://browsecat.net/sites/default/files/bifrost-wallpapers-100660-903784-1430307.png);
+    background-size: cover;
+    .content {
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .app-name {
+            margin-top: 0px;
+            padding-bottom: 10px;
+            font-size: 32px;
+        }
+        .register-form {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            width: 500px;
+            box-shadow: 0 0 50px #e0e0e0;
+            input:-webkit-autofill {
+                -webkit-box-shadow: 0 0 0 10px white inset;
+            }
+        }
+        button {
+            background-color: $Rojo;
+            color:#fff;
+            display: inline-block;
+            margin-right: 20px;
+            a{
+                color: white;
+            }
+        }
+        a {
+            color: $Rojo;
+        }
+    }
+    /*
+    &:after {
+        content: '';
+        background: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 50%;
+        right: 0;
+    }
+    &:before {
+        content: '';
+        background: #$Rojo;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }*/
+}
+.text-center {
+    text-align: center;
+}
+.w-100 {
+    width: 100%;
+}

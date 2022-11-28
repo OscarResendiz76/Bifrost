@@ -1,0 +1,110 @@
+<!-- -------------------------------------- ETIQUETAS PRINCIPALES Y LOGO -------------------------------------- -->
+<div class="register-page">
+    <div class="content">
+        <form class="register-form" fxFlex>
+            <div class="text-center">
+                <img src="/assets/images/bifrost.png"
+                    style="width: 410px; height: 180px"/>
+            </div>
+            <!-- ----------------------------------------- Name ----------------------------------------- -->
+            <div fxFlex fxLayout="row" class="form-group" xlayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="form.nombre"
+                            name="nombre"
+                            placeholder="Nombre"
+                            required="required"
+                            #email="ngModel"/>
+                    </mat-form-field>
+                    <!-- Control de que la información sea correcta, no listo
+                    <div class="alert-danger" *ngIf="nombre.errors && f.submitted">
+                        <div *ngIf="nombre.errors.required">Username is required</div>
+                        <div *ngIf="nombre.errors.minlength">
+                            Username must be at least 3 characters
+                        </div>
+                        <div *ngIf="nombre.errors.maxlength">
+                            Username must be at most 20 characters
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+            <!-- ----------------------------------------- Username ----------------------------------------- -->
+            <div fxFlex fxLayout="row" class="form-group" xLayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput type="text" name="nombreUsuario" placeholder="Nombre de Usuario"
+                            class="form-control" [(ngModel)]="form.nombreUsuario" required="required"/>
+                    </mat-form-field>
+                    <!-- Control de que la información sea correcta, no listo
+                    <div class="alert-danger" *ngIf="nombreUsuario.errors && f.submitted">
+                        <div *ngIf="nombreUsuario.errors.required">Username is required</div>
+                        <div *ngIf="nombreUsuario.errors.minlength">
+                            Username must be at least 3 characters
+                        </div>
+                        <div *ngIf="nombreUsuario.errors.maxlength">
+                            Username must be at most 20 characters
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+            <!-- ----------------------------------------- Email ----------------------------------------- -->
+            <div fxFlex fxLayout="row" class="form-group" xLayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput type="email" name="email" placeholder="Correo Electrónico"
+                                class="form-control" [(ngModel)]="form.email" required="required"/>
+                    </mat-form-field>
+                    <!--  
+                    <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                        <div *ngIf="email.errors.required">Email is required</div>
+                        <div *ngIf="email.errors.email">
+                            Email must be a valid email address
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+            <!-- ----------------------------------------- Password ----------------------------------------- -->
+            <div fxFlex fxLayout="row"class="form-group" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput type="password" name="password" placeholder="Contraseña"
+                                class="form-control" [(ngModel)]="form.password" required="required"
+                                minlength="8" #password="ngModel" />
+                    </mat-form-field>
+                    <!--
+                    <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                        <div *ngIf="password.errors.required">Password is required</div>
+                        <div *ngIf="password.errors.minlength">
+                            Password must be at least 6 characters
+                        </div>
+                    </div>
+                    -->
+                </div>
+                <!-- ----------------------------------------- FORM OVER ----------------------------------------- -->
+            </div>
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
+                <div fxFlex>
+                    <mat-checkbox>Remember Me</mat-checkbox>
+                </div>
+                <div fxFlex fxLayoutAlign="end">
+                    <a href="javascript:void(0)">Forgot Password?</a>
+                </div>
+            </div>
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <button class="action_btn" mat-raised-button class="w-100">Register</button>
+                    <!-- A PARTIR DE ESTE CLICK SE DEBE VERIFICAR Y LLEVAR A DASHBOARD-->
+                    <a style="text-align: right" [routerLink]="['/login']">Login</a>
+                    <!-- ESTE HIPERVINCULO TE LLEVA A LA FORMA DE LOGIN, RUTA EN APP-ROUTING-->
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
